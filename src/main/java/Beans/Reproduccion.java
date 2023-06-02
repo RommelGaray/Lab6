@@ -5,6 +5,8 @@ public class Reproduccion {
     private String fecha;
     private int cancion_idcancion;
 
+
+
     public Reproduccion(int idreproduccion, String nombre_tour, int nombre_ciudad) {
         this.idreproduccion = idreproduccion;
         this.fecha = nombre_tour;

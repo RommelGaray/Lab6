@@ -1,5 +1,6 @@
 package Daos;
 
+import Beans.Reproduccion;
 import Beans.Tour;
 
 import java.sql.*;
@@ -36,7 +37,6 @@ public class TourDao {
         }
         return listaTours;
     }
-
 
 
 
