@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="Beans.Cancion" %>
-<jsp:useBean type="java.util.ArrayList<Beans.Cancion>" scope="request" id="listaCanciones"/>
+<jsp:useBean type="java.util.ArrayList<Beans.Cancion>" scope="request" id="listaCancion"/>
 
 <html>
 <jsp:include page="/static/head.jsp">
@@ -18,12 +18,30 @@
   <jsp:include page="/includes/navbar.jsp">
     <jsp:param name="page" value="canciones"/>
   </jsp:include>
+
+  <% if(request.getParameter("idBanda") == null){ %>
   <div class="pb-5 pt-4 px-3 titlecolor">
-    <div class="col-lg-6">
-      <h1 class='text-light'>Lista de Canciones por banda</h1>
-      <a class="btn btn-warning" href="#">Mostrar todas las canciones</a>
+    <div class="row">
+      <div class="col-lg-6">
+        <h1 class='text-light'>Lista de Canciones</h1>
+      </div>
+
     </div>
   </div>
+
+  <% } else {%>
+  <div class="pb-5 pt-4 px-3 titlecolor">
+    <div class="row">
+      <div class="col-lg-6">
+        <h1 class='text-light'>Lista de Canciones por banda</h1>
+      </div>
+      <div class="col-lg-4 align-items-end">
+        <a class="btn btn-warning" href="<%=request.getContextPath()%>/listaCanciones">Mostrar todas las canciones</a>
+      </div>
+    </div>
+  </div>
+  <%}%>
+
   <div class="tabla">
     <table class="table table-dark table-transparent table-hover">
       <thead>
@@ -32,7 +50,7 @@
       <th>BANDA</th>
       </thead>
       <%
-        for (Cancion cancion : listaCanciones) {
+        for (Cancion cancion : listaCancion) {
       %>
       <tr>
         <td><%=cancion.getIdCancion()%>

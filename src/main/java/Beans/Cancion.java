@@ -5,12 +5,12 @@ public class Cancion {
     private String nombreCancion;
     private String banda;
 
-    /*public Cancion(int idCancion, String nombreCancion, String banda) {
+    public Cancion(int idCancion, String nombreCancion, String banda) {
         this.idCancion = idCancion;
         this.nombreCancion = nombreCancion;
         this.banda = banda;
     }
-    */
+
 
 
     public int getIdCancion() {
