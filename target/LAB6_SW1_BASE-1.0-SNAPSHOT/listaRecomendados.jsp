@@ -18,7 +18,7 @@
     <body>
     <div class='container'>
         <jsp:include page="/includes/navbar.jsp">
-            <jsp:param name="page" value="tours"/>
+            <jsp:param name="page" value="recomendaciones"/>
         </jsp:include>
         <div class="pb-5 pt-4 px-3 titlecolor">
             <div class="col-lg-6">
