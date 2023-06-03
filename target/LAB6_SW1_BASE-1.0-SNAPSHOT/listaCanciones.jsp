@@ -65,7 +65,7 @@
           <a href="<%=request.getContextPath()%>/listaCanciones?action=favorito&idCancion=<%=cancion.getIdCancion()%>&favorito=<%=cancion.getFavorito()%>"><i class="bi <%=(cancion.getFavorito()==0)?"bi-heart-fill cr7":"bi-heart-fill mechi"%>"></i></a>
         </td>
         <td>
-          <a href=""><i class="bi bi-plus-square"></i></a>
+          <a href="<%=request.getContextPath()%>/listaCanciones?action=crear&idCancion=<%=cancion.getIdCancion()%>"><i class="bi bi-plus-square"></i></a>
         </td>
       </tr>
       <%

@@ -82,15 +82,11 @@ public class CancionDao {
         }
 
         String url = "jdbc:mysql://localhost:3306/hr";
-        String sql = "INSERT INTO jobs (job_id,job_title,min_salary,max_salary) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO lista (idLista, nombreLista) VALUES (?,?)";
         try (Connection connection = DriverManager.getConnection(url, "root", "root");
              PreparedStatement pstmt = connection.prepareStatement(sql)) {
-
-            pstmt.setString(1, job.getJobId());
-            pstmt.setString(2, job.getJobTitle());
-            pstmt.setInt(3, job.getMinSalary());
-            pstmt.setInt(4, job.getMaxSalary());
-
+            pstmt.setInt(1, cancion.getIdCancion());
+            pstmt.setString(2, cancion.getNombreCancion());
             pstmt.executeUpdate();
 
         } catch (SQLException e) {

@@ -5,12 +5,21 @@ public class Cancion {
     private String nombreCancion;
     private String banda;
     private int favorito;
+    private int idLista;
 
     public Cancion(int idCancion, String nombreCancion, String banda, int favorito) {
         this.idCancion = idCancion;
         this.nombreCancion = nombreCancion;
         this.banda = banda;
         this.favorito=favorito;
+    }
+
+    public int getIdLista() {
+        return idLista;
+    }
+
+    public void setIdLista(int idLista) {
+        this.idLista = idLista;
     }
 
     public int getFavorito() {
