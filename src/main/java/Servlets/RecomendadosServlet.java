@@ -1,6 +1,8 @@
 package Servlets;
 
+import Beans.Cancion;
 import Beans.Tour;
+import Daos.CancionDao;
 import Daos.TourDao;
 
 import javax.servlet.RequestDispatcher;
@@ -19,12 +21,12 @@ public class RecomendadosServlet extends HttpServlet{
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        TourDao tourDao = new TourDao();
-        ArrayList<Tour> listaTours = tourDao.obtenerListaTours();
+        CancionDao cancionDao = new CancionDao();
+        ArrayList<Cancion> listaRecomendados = cancionDao.listaReproducciones();
 
-        request.setAttribute("listaTours",listaTours);
+        request.setAttribute("listaRecomendados",listaRecomendados);
 
-        RequestDispatcher view =request.getRequestDispatcher("listaTours.jsp");
+        RequestDispatcher view =request.getRequestDispatcher("listaRecomendados.jsp");
         view.forward(request,response);
     }
 }
