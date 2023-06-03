@@ -29,7 +29,7 @@ public class ReproduccionDao {
              ResultSet resultSet = stmt.executeQuery(sql)) {
 
             while (resultSet.next()) {
-                Cancion reproduccion = new Cancion(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3));
+                Cancion reproduccion = new Cancion(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3), resultSet.getInt(4));
                 /*cancion.setIdCancion(resultSet.getInt(1));
                 cancion.setNombreCancion(resultSet.getString(2));
                 cancion.setBanda(resultSet.getString(3));*/

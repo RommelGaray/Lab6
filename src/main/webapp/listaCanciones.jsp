@@ -48,6 +48,8 @@
       <th>ID</th>
       <th>CANCION</th>
       <th>BANDA</th>
+      <th></th>
+      <th></th>
       </thead>
       <%
         for (Cancion cancion : listaCancion) {
@@ -59,7 +61,12 @@
         </td>
         <td><%=cancion.getBanda()%>
         </td>
-
+        <td>
+          <a href="<%=request.getContextPath()%>/listaCanciones?action=favorito&idCancion=<%=cancion.getIdCancion()%>&favorito=<%=cancion.getFavorito()%>"><i class="bi <%=(cancion.getFavorito()==0)?"bi-heart-fill cr7":"bi-heart-fill mechi"%>"></i></a>
+        </td>
+        <td>
+          <a href=""><i class="bi bi-plus-square"></i></a>
+        </td>
       </tr>
       <%
         }

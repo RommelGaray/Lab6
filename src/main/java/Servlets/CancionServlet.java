@@ -24,14 +24,27 @@ public class CancionServlet extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CancionDao cancionDao = new CancionDao();
         String idBanda = request.getParameter("idBanda");
+        String action =request.getParameter("action");
         //                no es nulo  -> caso contrario : listartodo
-        if (idBanda==null){
-                ArrayList<Cancion> listaCancion = cancionDao.listaCanciones();
-                request.setAttribute("listaCancion",listaCancion);
-                RequestDispatcher view =request.getRequestDispatcher("listaCanciones.jsp");
-                view.forward(request,response);
-        }else{
+        if (idBanda!=null){
             ArrayList<Cancion> listaCancion = cancionDao.cancionesPorBanda(idBanda);
+            request.setAttribute("listaCancion",listaCancion);
+            RequestDispatcher view =request.getRequestDispatcher("listaCanciones.jsp");
+            view.forward(request,response);
+
+        } else if (action!=null) {
+            switch (action) {
+                case "favorito":
+                    int idCancion = Integer.parseInt(request.getParameter("idCancion"));
+                    int favorito = Integer.parseInt(request.getParameter("favorito"));
+
+                    cancionDao.favorito(idCancion, favorito);
+                    response.sendRedirect(request.getContextPath()+"/listaCanciones");
+                    break;
+
+            }
+        }else {
+            ArrayList<Cancion> listaCancion = cancionDao.listaCanciones();
             request.setAttribute("listaCancion",listaCancion);
             RequestDispatcher view =request.getRequestDispatcher("listaCanciones.jsp");
             view.forward(request,response);

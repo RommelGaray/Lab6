@@ -9,6 +9,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'/>
     <link rel="shortcut icon" href="<%=request.getContextPath()%>/static/favicon2.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <title><%=request.getParameter("title")%>
     </title>
     <style>
@@ -71,6 +72,21 @@
         .fila-yellow {
             background-color: #f0e01f91;
         }
+
+        .cr7{
+            color: #6c757d;
+        }
+        .cr7:hover{
+            color: red;
+        }
+
+        .mechi{
+            color: red;
+        }
+        .mechi:hover{
+            color: #6c757d;
+        }
+
 
 
     </style>
