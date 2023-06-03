@@ -18,7 +18,6 @@ import java.util.ArrayList;
 public class CancionServlet extends HttpServlet{
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,6 +40,10 @@ public class CancionServlet extends HttpServlet{
                     cancionDao.favorito(idCancion, favorito);
                     response.sendRedirect(request.getContextPath()+"/listaCanciones");
                     break;
+                case "crear":
+                    request.getRequestDispatcher("nuevaLista.jsp").forward(request, response);
+                    break;
+
 
             }
         }else {

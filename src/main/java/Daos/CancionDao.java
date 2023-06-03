@@ -73,6 +73,32 @@ public class CancionDao {
 
     }
 
+    // GUARDAR NUEVA LISTA
+    public void guardar(Cancion cancion) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        String url = "jdbc:mysql://localhost:3306/hr";
+        String sql = "INSERT INTO jobs (job_id,job_title,min_salary,max_salary) VALUES (?,?,?,?)";
+        try (Connection connection = DriverManager.getConnection(url, "root", "root");
+             PreparedStatement pstmt = connection.prepareStatement(sql)) {
+
+            pstmt.setString(1, job.getJobId());
+            pstmt.setString(2, job.getJobTitle());
+            pstmt.setInt(3, job.getMinSalary());
+            pstmt.setInt(4, job.getMaxSalary());
+
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
     public ArrayList<Cancion> listaCanciones(){
         ArrayList<Cancion> listaCancion = new ArrayList<>();
 
